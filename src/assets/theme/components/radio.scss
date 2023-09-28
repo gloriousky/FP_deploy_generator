@@ -1,0 +1,9 @@
+.el-radio__inner {
+  @apply h-4 w-4 border-[#d1d5db] bg-white;
+}
+.el-radio__label {
+  @apply font-medium text-sm text-gray-900 dark:text-gray-100;
+}
+.el-radio__input.is-disabled .el-radio__inner {
+  @apply border-[#d1d5db];
+}

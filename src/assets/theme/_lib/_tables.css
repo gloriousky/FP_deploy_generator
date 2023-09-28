@@ -1,0 +1,51 @@
+/*   */
+/*  _tables.scss */
+/*   */
+
+/* Sticky Header */
+.fixed-solution .sticky-table-header {
+  @apply border-b border-t border-solid border-slate-100 bg-slate-50;
+  top: 70px !important;
+}
+
+.table-responsive[data-pattern="priority-columns"] {
+  border: 1px solid theme("colors.slate.200");
+}
+
+.attendance-table .table thead tr th {
+  padding: 5px;
+}
+
+.dataTable-table > thead > tr > th {
+  border: none;
+}
+
+.dataTable-selector,
+.dataTable-input {
+  @apply border border-solid border-slate-200 bg-white text-slate-700 focus-visible:outline-none dark:border-slate-700 dark:bg-slate-700 dark:text-slate-300;
+  border-radius: 0.25rem;
+  padding-right: 2.5rem;
+}
+.dataTable-info,
+.dataTable-dropdown label {
+  @apply dark:text-slate-400;
+}
+
+.dataTable-table > tbody > tr > td,
+.dataTable-table > tbody > tr > th,
+.dataTable-table > tfoot > tr > td,
+.dataTable-table > tfoot > tr > th,
+.dataTable-table > thead > tr > td,
+.dataTable-table > thead > tr > th {
+  padding: 16px 20px;
+}
+
+.dataTable-wrapper.no-footer .dataTable-container {
+  @apply border-b border-dashed border-slate-200 dark:border-slate-700;
+}
+
+.dataTable-pagination .active a,
+.dataTable-pagination .active a:focus,
+.dataTable-pagination .active a:hover {
+  background-color: theme("colors.slate.100");
+}

@@ -1,0 +1,25 @@
+/** framework */
+@tailwind base;
+@tailwind components;
+
+@import "assets/theme/_lib/_general.css";
+@import "assets/theme/_lib/_components.css";
+@import "assets/theme/_lib/_tables.css";
+@import "assets/theme/_lib/_form.css";
+
+@tailwind utilities;
+
+/** plugins */
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
+@import "element-plus/dist/index.css";
+
+/** customs */
+@import "assets/theme/custom.scss";
+@import "assets/theme/color/blue.css";
+
+body {
+ @apply bg-gray-100 dark:bg-gray-900 bg-[url('@/assets/images/bg-body.png')] dark:bg-[url('@/assets/images/bg-body-dark.png')];
+
+ font-family: Microsoft JhengHei,Tahoma,Geneva,Verdana,sans-serif;
+ font-size: 14px;
+}

@@ -1,0 +1,7 @@
+.el-input__wrapper {
+  @apply form-control;
+
+  .el-input.invalid & {
+    @apply border-red-500 shadow-none;
+  }
+}

@@ -1,0 +1,95 @@
+/*  _form.scss */
+
+.mce-panel {
+  @apply border border-slate-100 bg-white text-slate-700;
+}
+.mce-label {
+  @apply text-slate-500;
+  text-shadow: none !important;
+}
+.mce-tinymce {
+  @apply shadow-none;
+}
+.mce-btn {
+  @apply bg-transparent;
+}
+.mce-flow-layout,
+.mce-top-part::before {
+  @apply bg-slate-50 shadow-none;
+}
+.mce-caret {
+  @apply border-4 border-t border-slate-600;
+  opacity: 0.7 !important;
+}
+.mce-menubar .mce-caret {
+  @apply border-t-slate-600;
+  opacity: 0.7 !important;
+}
+.mce-menubar .mce-menubtn button span,
+.mce-btn .mce-txt,
+.mce-ico {
+  @apply text-slate-700;
+}
+
+.mce-btn.mce-disabled button,
+.mce-btn.mce-disabled:hover button {
+  opacity: 0.7 !important;
+}
+.mce-menu-item.mce-disabled,
+.mce-menu-item.mce-disabled:hover,
+.mce-menu-item:hover,
+.mce-menu-item:focus {
+  @apply bg-slate-50;
+}
+
+.tox .tox-edit-area__iframe {
+  @apply dark:bg-slate-800 dark:text-slate-400;
+}
+.mce-content-body {
+  @apply dark:text-slate-400;
+}
+.dark .tox .tox-mbtn__select-label,
+.dark .mce-content-body {
+  color: #fff !important;
+}
+.dark .tox:not(.tox-tinymce-inline) .tox-editor-header {
+  background-color: #272e3e !important;
+}
+.dark .tox .tox-toolbar-overlord,
+.dark .tox .tox-mbtn {
+  background-color: #272e3e !important;
+}
+/* .dark .tox :not(svg):not(rect){
+  background-color: #212836 !important;
+  color: #fff !important;
+} */
+.dark .tox .tox-statusbar__branding svg,
+.dark .tox .tox-collection__item-checkmark svg,
+.dark .tox .tox-collection__item-icon svg,
+.dark .tox .tox-tbtn svg {
+  fill: #76819b !important;
+}
+.dark .tox .tox-statusbar__path-item,
+.dark .tox-collection__item-label {
+  color: #ddd !important;
+}
+.dark .tox .tox-statusbar,
+.dark .tox-tinymce {
+  border-color: #262c3a !important;
+}
+.dark .tox .tox-menu,
+.dark .tox .tox-toolbar-overlord .tox-toolbar__primary,
+.dark .tox .tox-menubar {
+  background-color: #212836 !important;
+  color: #fff !important;
+}
+.dark .tox .tox-collection--list .tox-collection__item--active {
+  background-color: #212836 !important;
+  color: #fff !important;
+}
+.dark .tox .tox-collection--list .tox-collection__group {
+  border-color: #ddd !important;
+}
+.dark .tox .tox-statusbar {
+  background-color: #212836 !important;
+}

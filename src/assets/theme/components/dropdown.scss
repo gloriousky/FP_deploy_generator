@@ -1,0 +1,14 @@
+.el-dropdown {
+  @apply text-sm leading-none;
+}
+
+.el-dropdown-menu__item {
+  @apply px-4 py-2 text-sm;
+}
+.el-dropdown-menu__item:not(.is-disabled) {
+  @apply text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900/20 dark:hover:text-white;
+}
+
+.el-dropdown-menu__item:not(.is-disabled):focus {
+  @apply bg-gray-100 text-gray-700 dark:bg-gray-500/20 dark:text-gray-200;
+}

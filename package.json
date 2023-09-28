@@ -1,0 +1,59 @@
+{
+  "name": "base-admin-vue",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "postinstall": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "@arshown/vue3-i18n": "1.3.2",
+    "@vuelidate/core": "2.0.3",
+    "@vuelidate/validators": "2.0.3",
+    "axios": "1.4.0",
+    "element-plus": "2.3.12",
+    "jquery": "3.7.0",
+    "js-cookie": "3.0.5",
+    "mockjs": "1.1.0",
+    "perfect-scrollbar": "1.5.5",
+    "pinia": "2.1.4",
+    "pinia-plugin-persist": "1.0.0",
+    "qs": "6.11.2",
+    "ramda": "0.29.0",
+    "unplugin-auto-import": "0.16.6",
+    "unplugin-element-plus": "0.8.0",
+    "unplugin-vue-components": "0.25.2",
+    "vue": "3.3.4",
+    "vue-router": "4.2.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@rushstack/eslint-patch": "1.3.2",
+    "@types/ramda": "0.29.3",
+    "@vitejs/plugin-vue": "4.2.3",
+    "@vue/eslint-config-prettier": "8.0.0",
+    "@vue/eslint-config-typescript": "11.0.3",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.45.0",
+    "eslint-plugin-vue": "9.15.1",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "path-browserify": "1.0.1",
+    "postcss": "8.4.27",
+    "prettier": "3.0.0",
+    "prettier-plugin-tailwindcss": "0.5.4",
+    "sass": "1.64.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6",
+    "vite": "4.4.5"
+  },
+  "lint-staged": {
+    "*.md": "prettier --write",
+    "*.{js,vue,css}": "prettier --write",
+    "*.{js,vue}": "eslint --fix"
+  }
+}

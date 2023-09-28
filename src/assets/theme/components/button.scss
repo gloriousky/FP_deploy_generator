@@ -1,0 +1,28 @@
+.el-button {
+  @apply font-normal text-sm px-3 py-2;
+  background-color: var(--el-button-bg-color);
+
+  &--default {
+    @apply border border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800 dark:hover:border-gray-600;
+
+    &:not(.is-disabled) {
+      @apply text-gray-900 hover:bg-gray-100 hover:text-primary-500 dark:text-white  dark:hover:bg-gray-700;
+    }
+
+    &.is-disabled {
+      @apply bg-gray-200 hover:bg-gray-200;
+    }
+  }
+
+  &--small {
+    @apply text-xs px-2 py-1.5 h-auto leading-none;
+  }
+
+  &--large {
+    @apply text-lg px-5 py-3;
+  }
+}
+
+.el-button + .el-button {
+  margin-left: 0;
+}

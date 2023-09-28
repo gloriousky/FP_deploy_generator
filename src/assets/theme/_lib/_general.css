@@ -1,0 +1,178 @@
+body {
+  overflow-x: hidden !important;
+}
+body[data-layout-mode="dark"] .top-icon,
+body[data-layout-mode="light"] .top-icon {
+  @apply text-2xl text-slate-400;
+}
+
+/*TODO: Make this a loop!! */
+input[type="checkbox"]:checked ~ .progress_bar {
+  padding-right: 75%;
+}
+input[type="checkbox"]:checked ~ .progress_bar > .progress_inner {
+  background: linear-gradient(
+    to right top,
+    #845ec2,
+    #8163ce,
+    #7d68da,
+    #766de6,
+    #6d73f2
+  );
+}
+input[type="checkbox"]:checked ~ .progress_bar > .progress_inner:after {
+  content: "20% - get out of my house !";
+}
+
+input[type="checkbox"]:checked ~ input[type="checkbox"]:checked {
+  padding-right: 50%;
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  > .progress_inner {
+  background: linear-gradient(
+    to right top,
+    #845ec2,
+    #8163ce,
+    #7d68da,
+    #766de6,
+    #6d73f2
+  );
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  > .progress_inner:after {
+  content: "40% - you can do better !";
+}
+
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar {
+  padding-right: 25%;
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar
+  > .progress_inner {
+  background: linear-gradient(
+    to right top,
+    #845ec2,
+    #8163ce,
+    #7d68da,
+    #766de6,
+    #6d73f2
+  );
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar
+  > .progress_inner:after {
+  content: "60% - 60% does not work every time !";
+}
+
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar {
+  padding-right: 0;
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar
+  > .progress_inner {
+  background: linear-gradient(
+    to right top,
+    #845ec2,
+    #8163ce,
+    #7d68da,
+    #766de6,
+    #6d73f2
+  );
+}
+input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ input[type="checkbox"]:checked
+  ~ .progress_bar
+  > .progress_inner:after {
+  content: "80% - better than my password, probably !";
+}
+
+.progress_bar {
+  height: 8px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 2rem;
+  padding-right: 100%;
+  overflow: hidden;
+  transition: padding-right 0.5s ease;
+  @apply border-[1px] border-solid border-slate-200 dark:border-slate-700;
+}
+
+.progress_bar .progress_inner {
+  content: "";
+  transition: background-color 0.6s linear;
+}
+
+@media (max-width: 540px) {
+  nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+.scrollbar-w-2::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.scrollbar-track-blue-lighter::-webkit-scrollbar-track {
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
+.scrollbar-thumb-blue::-webkit-scrollbar-thumb {
+  --bg-opacity: 1;
+  background-color: #edf2f7;
+  background-color: rgba(237, 242, 247, var(--bg-opacity));
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+}
+
+.icon-demo-content i {
+  @apply mx-auto mb-1 block text-center text-3xl text-slate-400;
+}
+
+.dark .pln {
+  color: #c8d3dd;
+}
+.dark .tag {
+  color: #6a6ae7;
+}
+.dark .atn {
+  color: #894e6c;
+}
+.dark .typ {
+  color: #894e6c;
+}
+
+.navbar li button {
+  @apply text-gray-400 hover:text-gray-200;
+}
+
+.navbar li.active button {
+  @apply text-white;
+}
+.navbar li .dropdown-menu ul li .nav-link {
+  @apply text-slate-400 dark:text-slate-300 md:text-slate-700;
+}
+.navbar li.active .dropdown-menu ul li .nav-link.active {
+  @apply bg-slate-900/30 text-blue-500 dark:bg-slate-800/70 md:bg-slate-50;
+}

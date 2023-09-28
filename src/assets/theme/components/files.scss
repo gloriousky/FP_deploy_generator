@@ -1,0 +1,91 @@
+.zone {
+  position: relative;
+  width: 100%;
+  min-height: 168px;
+  border: 1px dashed #d3d8de;
+  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
+
+  &:not(.zone--disabled):hover,
+  &--hover {
+    cursor: pointer;
+    border-color: var(--el-color-primary);
+  }
+
+  &--invalid {
+    border-color: #ff5b57 !important;
+  }
+
+  &--flex {
+    display: flex;
+  }
+
+  &__placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    pointer-events: none;
+
+    &__icon {
+      font-size: 67px;
+      color: var(--el-text-color-placeholder);
+      line-height: 50px;
+    }
+
+    &__text {
+      color: var(--el-text-color-regular);
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  &__display {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 0.5rem;
+
+    &--center {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__item {
+      width: 148px;
+      height: 148px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      background-color: var(--el-fill-color-blank);
+      border: 1px solid var(--el-border-color);
+      position: relative;
+      overflow: hidden;
+
+      &__thumb {
+        @apply block h-full w-full;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      &__icon {
+        @apply flex h-full w-full items-center justify-center;
+        font-size: 6rem;
+      }
+
+      &__actions {
+        @apply absolute inset-0 z-1 flex items-center justify-center text-2xl text-white opacity-0;
+        background-color: var(--el-overlay-color-lighter);
+        transition: opacity var(--el-transition-duration);
+      }
+
+      &:hover &__actions {
+        @apply opacity-100;
+      }
+    }
+  }
+}

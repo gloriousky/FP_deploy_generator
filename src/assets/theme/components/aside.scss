@@ -1,0 +1,44 @@
+.aside {
+ @apply fixed top-0 bottom-0 left-0 print:hidden bg-white dark:bg-slate-800 shadow-2xl;
+
+ &__bg {
+  @apply absolute top-0 left-0 right-0 bottom-10 z-1 bg-[url('@/assets/images/user.png')] dark:bg-[url('@/assets/images/user-light.png')];
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 140px auto;
+ }
+
+ &__inner {
+  @apply relative h-full z-2 pt-14 px-4 overflow-y-auto pb-[180px];
+ }
+
+ &__group {
+  @apply pt-6;
+
+  &__title {
+   @apply text-sm text-[#677788] dark:text-gray-400 px-2 pb-1;
+  }
+
+  &__list {
+   @apply space-y-1;
+
+   &__item {
+    @apply flex items-center px-2 py-2 text-[#132144] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 justify-between;
+
+    &--active {
+     @apply text-primary-400 bg-gray-100 dark:bg-gray-700;
+
+     .aside__group__list__icon {
+      @apply text-primary-400;
+     }
+    }
+   }
+
+   &__icon {
+    @apply text-[#94a3b8] dark:text-slate-300 group-hover:text-primary-400;
+   }
+  }
+ }
+
+}

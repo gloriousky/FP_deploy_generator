@@ -1,0 +1,23 @@
+export default {
+  "valid.no.delete.target": "無刪除目標，請勾選欲刪除的項目",
+  "valid.no.permission": "無權限",
+  "valid.no.change": "無變更",
+  "valid.no.data": "查無資料",
+  "valid.no.result": "沒有找到相符的項目",
+  "valid.required": "欄位為必填",
+  "valid.minLength": "最少為 {min} 字元",
+  "valid.maxLength": "最多為 {max} 字元",
+  "valid.sameAs": "必須等於{equalTo}",
+  "valid.sameAs.field": "必須與{field}內容相同",
+  "valid.email": "郵箱格式錯誤",
+  "valid.url": "網址格式錯誤",
+  "valid.phone": "手機格式錯誤",
+  "valid.alphaNum": "內容僅包含英文字母、數字",
+  "valid.numeric": "內容僅能為數字",
+  "valid.integer": "內容僅能為整數",
+  "valid.maxSize": "檔案不能大於 {size}",
+
+  "placeholder.input": "請輸入",
+  "placeholder.select": "請選擇",
+  "placeholder.length.between": "限制 {min}~{max} 位字元",
+};

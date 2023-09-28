@@ -1,0 +1,32 @@
+.el-table {
+  @apply rounded-md bg-white;
+
+  &:has(~ .table-footer) {
+    @apply rounded-b-none;
+  }
+
+  ~ .table-footer {
+    @apply rounded-b-md bg-white px-4 py-4 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-slate-700/50;
+  }
+}
+
+.el-table .cell {
+  @apply p-0;
+}
+
+.el-table .el-table__cell {
+  @apply px-4 py-3;
+}
+
+.el-table .el-table__header .el-table__cell,
+.el-table thead .el-table__cell {
+  @apply bg-gray-800 px-4 py-3 text-xs dark:bg-slate-700;
+}
+
+.el-table tbody tr {
+  @apply border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-slate-700/50;
+}
+
+.el-table .cell-index .cell {
+  @apply overflow-visible whitespace-nowrap;
+}

@@ -1,0 +1,44 @@
+.el-select-v2 {
+  @apply text-sm;
+
+  &__wrapper {
+    @apply form-control outline-none;
+
+    &:read-only {
+      @apply cursor-pointer bg-gray-50 outline-none outline-1 outline-offset-0 dark:bg-slate-700;
+      .el-select-v2__placeholder {
+        @apply text-gray-900 dark:text-white;
+      }
+    }
+
+    &.is-focused {
+      @apply border-primary-500 outline-primary-500 ring-primary-500 dark:border-primary-400 dark:outline-transparent dark:ring-primary-400;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &:disabled {
+      @apply cursor-not-allowed border-gray-200 bg-slate-100 dark:border-slate-600 dark:bg-[#262727];
+      .el-select-v2__placeholder {
+        @apply text-slate-400 dark:text-[#8d9095];
+      }
+    }
+  }
+
+  &__placeholder,
+  &__wrapper .el-select-v2__input-wrapper {
+    margin-inline-start: 0;
+  }
+}
+
+.is-invalid .el-select-v2__wrapper {
+  @apply border-danger-500 dark:border-danger-500;
+  &.is-focused {
+    @apply outline-danger-500 dark:outline-transparent;
+  }
+}
+
+.el-select-v2__wrapper .el-select-v2__input-wrapper input {
+  @apply h-5 leading-5;
+  margin: 0;
+}
