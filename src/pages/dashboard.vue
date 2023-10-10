@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mb-5">hello {{ userInfo.name }} !</div>
+    <div class="mb-5">hello {{ userInfo.fullName }} !</div>
     <Card>
       <template #title>Buttons</template>
       <div class="space-y-4">

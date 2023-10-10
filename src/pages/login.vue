@@ -27,14 +27,12 @@
 </template>
 <script setup>
 import { watch, onBeforeMount } from "vue";
-import { useRouter } from "vue-router";
-
 /** stores */
 import { useAuthStore } from "@/stores/auth-store";
 
 /** service */
-import { useMessageService } from "@/services/message-service";
 import { useI18nService } from "@/services/i18n-service";
+import { useTrelloService } from "@/services/trello-service";
 
 /** hooks */
 import { useForm, required } from "@/hooks/use-form";
@@ -48,9 +46,9 @@ defineOptions({
   layout: "layout-login",
 });
 
-const router = useRouter();
 const authStore = useAuthStore();
-const messageService = useMessageService();
+const trelloService = useTrelloService();
+
 const { scope } = useI18nService();
 const { t: currentMessages } = scope("pages.login");
 const { form, validate } = useForm(
@@ -74,15 +72,8 @@ const { form, validate } = useForm(
   },
 );
 
-const onLogin = async () => {
-  if (form.$valid()) return false;
-  const res = await authStore.login(form.$request());
-  if (!res.code === 0) {
-    messageService.danger(currentMessages("feedback.failed"));
-    return;
-  }
-  messageService.success(currentMessages("feedback.success"));
-  router.push({ name: "default-path" });
+const onLogin = () => {
+  trelloService.login();
 };
 
 watch(

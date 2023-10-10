@@ -77,10 +77,13 @@ export const useAuthStore = defineStore("auth-store", {
 
     async fetchInfo() {
       const http = useHttpService();
-      const res = await http.get("/passport");
-      if (res.code === 0) {
-        this.userInfo = res.data;
-      }
+      const res = await http.get("/members/me", {
+        params: {
+          key: import.meta.env.VITE_API_KEY,
+          token: this.accessToken,
+        },
+      });
+      this.userInfo = res;
       return res;
     },
   },

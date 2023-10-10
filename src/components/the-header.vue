@@ -40,7 +40,7 @@
           <a href="#" class="flex items-center rounded-full text-sm">
             <img
               class="h-8 w-8 rounded-full"
-              src="@/assets/images/avatar.jpg"
+              :src="`${userInfo.avatarUrl}/50.png`"
               alt="user photo"
             />
           </a>
@@ -49,7 +49,7 @@
               <span
                 class="block text-sm font-medium text-gray-900 dark:text-white"
               >
-                {{ userInfo.name }}
+                {{ userInfo.fullName }}
               </span>
               <span
                 class="block truncate text-sm font-normal text-gray-500 dark:text-gray-400"
