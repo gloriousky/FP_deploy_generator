@@ -2,6 +2,17 @@
   <div>
     <div class="mb-5">hello {{ userInfo.fullName }} !</div>
     <Card>
+      <template #title>{{ data.board.name }}</template>
+      <Table :data="data.cards">
+        <TableColumn field="name" title="卡片名稱" />
+        <TableColumn field="shortUrl" title="網址">
+          <template v-slot="{ row }">
+            <a :href="row.shortUrl" target="_blank" class="text-blue-500">{{ row.shortUrl }}</a>
+          </template>
+        </TableColumn>
+      </Table>
+    </Card>
+    <Card>
       <template #title>Buttons</template>
       <div class="space-y-4">
         <div class="space-x-2">
@@ -497,13 +508,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "@/stores/auth-store";
 
 /** services */
 import { useDialogService } from "@/services/dialog-service";
 import { useMessageService } from "@/services/message-service";
+import { useTrelloService } from "@/services/trello-service";
 
 /** hook */
 import { useForm, required, email, sameAs, maxSize } from "@/hooks/use-form";
@@ -527,6 +539,28 @@ defineOptions({
 
 const authStore = useAuthStore();
 const { userInfo } = storeToRefs(authStore);
+const trelloService = useTrelloService();
+
+const data = reactive({
+  board: {},
+  cards: []
+})
+onMounted(async() => {
+  trelloService.swtichBoard(3);
+  getBoard();
+  getCards();
+});
+
+const getBoard = async () => {
+  const res = await trelloService.getBoardInfo();
+  data.board = res;
+}
+const getCards = async() => {
+  await trelloService.getListsInfo();
+  trelloService.swtichList(2);
+  const res = await trelloService.getCardsInList();
+  data.cards = res;
+};
 
 /**
  * Dialogs

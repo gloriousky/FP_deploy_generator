@@ -9,6 +9,9 @@ export const useAuthStore = defineStore("auth-store", {
   state: () => ({
     accessToken: null,
     userInfo: {},
+    currentBoardId: null,
+    listInfo: [],
+    currentListId: null,
     authKeep: null,
   }),
   getters: {
@@ -86,5 +89,37 @@ export const useAuthStore = defineStore("auth-store", {
       this.userInfo = res;
       return res;
     },
+
+    async getBoardInfo() {
+      const http = useHttpService();
+      const res = await http.get(`/boards/${this.currentBoardId}`, {
+        params: {
+          key: import.meta.env.VITE_API_KEY,
+          token: this.accessToken,
+        },
+      });
+      return res;
+    },
+    async getListsInfo() {
+      const http = useHttpService();
+      const res = await http.get(`/boards/${this.currentBoardId}/lists`, {
+        params: {
+          key: import.meta.env.VITE_API_KEY,
+          token: this.accessToken,
+        },
+      });
+      this.listInfo = res;
+      return res;
+    },
+    async getCardsInList() {
+      const http = useHttpService();
+      const res = await http.get(`/lists/${this.currentListId}/cards`, {
+        params: {
+          key: import.meta.env.VITE_API_KEY,
+          token: this.accessToken,
+        },
+      });
+      return res;
+    }
   },
 });

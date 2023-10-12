@@ -29,5 +29,27 @@ export const useTrelloService = defineService("trello-service", () => {
     );
   };
 
-  return { login };
+  const getBoardInfo = async() => {
+    const res = await authStore.getBoardInfo();
+    return res;
+  }
+
+  const swtichBoard = (index) => {
+    authStore.$state.currentBoardId = authStore.$state.userInfo.idBoards[index];
+  }
+
+  const swtichList = (index) => {
+    authStore.$state.currentListId = authStore.$state.listInfo[index].id;
+  }
+
+  const getListsInfo = async() => {
+    await authStore.getListsInfo();
+  }
+
+  const getCardsInList = async() => {
+    const res = await authStore.getCardsInList();
+    return res;
+  }
+
+  return { login, swtichBoard, swtichList, getBoardInfo, getListsInfo, getCardsInList };
 });
