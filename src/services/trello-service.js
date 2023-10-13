@@ -29,11 +29,6 @@ export const useTrelloService = defineService("trello-service", () => {
     );
   };
 
-  const getBoardInfo = async() => {
-    const res = await authStore.getBoardInfo();
-    return res;
-  }
-
   const swtichBoard = (index) => {
     authStore.$state.currentBoardId = authStore.$state.userInfo.idBoards[index];
   }
@@ -42,8 +37,14 @@ export const useTrelloService = defineService("trello-service", () => {
     authStore.$state.currentListId = authStore.$state.listInfo[index].id;
   }
 
+  const getBoardInfo = async() => {
+    const res = await authStore.getBoardInfo();
+    return res;
+  }
+
   const getListsInfo = async() => {
-    await authStore.getListsInfo();
+    const res = await authStore.getListsInfo();
+    return res;
   }
 
   const getCardsInList = async() => {
