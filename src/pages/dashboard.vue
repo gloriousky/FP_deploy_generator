@@ -4,15 +4,15 @@
     <Card>
       <Select :model-value="null" @update:model-value="onListChanged">
         <option
-          v-for="(item, index) in authStore.$state.listInfo"
+          v-for="(item, index) in listInfo"
           :key="item.id"
           :value="index"
         >
           {{ item.name }}
         </option>
       </Select>
-      <template #title>{{ data.board.name }}</template>
-      <Table :data="data.cards">
+      <template #title>{{ boardInfo.name }}</template>
+      <Table :data="cardInfo">
         <TableColumn field="name" title="卡片名稱" />
         <TableColumn field="shortUrl" title="網址">
           <template v-slot="{ row }">
@@ -519,7 +519,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "@/stores/auth-store";
 
@@ -549,33 +549,30 @@ defineOptions({
 });
 
 const authStore = useAuthStore();
-const { userInfo } = storeToRefs(authStore);
+const { userInfo, boardInfo, listInfo, cardInfo } = storeToRefs(authStore);
 const trelloService = useTrelloService();
 
-const data = reactive({
-  board: {},
-  cards: [],
+onMounted(() => {
+  initPage();
 });
-onMounted(async () => {
+
+const initPage = async () => {
   trelloService.swtichBoard(3);
   getBoard();
   await trelloService.getListsInfo();
   trelloService.swtichList(2);
   getCards();
-});
-
+};
 const getBoard = async () => {
-  const res = await trelloService.getBoardInfo();
-  data.board = res;
+  await trelloService.getBoardInfo();
 };
 const getCards = async () => {
-  const res = await trelloService.getCardsInList();
-  data.cards = res;
+  await trelloService.getCardsInList();
 };
 const onListChanged = (value) => {
   trelloService.swtichList(value);
   getCards();
-}
+};
 /**
  * Dialogs
  */

@@ -9,9 +9,11 @@ export const useAuthStore = defineStore("auth-store", {
   state: () => ({
     accessToken: null,
     userInfo: {},
+    boardInfo: {},
     currentBoardId: null,
     listInfo: [],
     currentListId: null,
+    cardInfo: [],
     authKeep: null,
   }),
   getters: {
@@ -98,6 +100,7 @@ export const useAuthStore = defineStore("auth-store", {
           token: this.accessToken,
         },
       });
+      this.boardInfo = res;
       return res;
     },
     async getListsInfo() {
@@ -119,6 +122,7 @@ export const useAuthStore = defineStore("auth-store", {
           token: this.accessToken,
         },
       });
+      this.cardInfo = res;
       return res;
     }
   },
