@@ -3,11 +3,7 @@
     <div class="mb-5">hello {{ userInfo.fullName }} !</div>
     <Card>
       <Select :model-value="null" @update:model-value="onListChanged">
-        <option
-          v-for="(item, index) in listInfo"
-          :key="item.id"
-          :value="index"
-        >
+        <option v-for="(item, index) in listInfo" :key="item.id" :value="index">
           {{ item.name }}
         </option>
       </Select>
@@ -557,10 +553,10 @@ onMounted(() => {
 });
 
 const initPage = async () => {
-  trelloService.swtichBoard(3);
+  trelloService.switchBoard(3);
   getBoard();
   await trelloService.getListsInfo();
-  trelloService.swtichList(2);
+  trelloService.switchList(2);
   getCards();
 };
 const getBoard = async () => {
@@ -570,7 +566,7 @@ const getCards = async () => {
   await trelloService.getCardsInList();
 };
 const onListChanged = (value) => {
-  trelloService.swtichList(value);
+  trelloService.switchList(value);
   getCards();
 };
 /**

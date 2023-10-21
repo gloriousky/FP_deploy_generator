@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 export const useTrelloService = defineService("trello-service", () => {
   const authStore = useAuthStore();
   const router = useRouter();
-  
+
   const login = () => {
     const url = new URL("/1/authorize", "https://trello.com");
     url.search = new URLSearchParams({
@@ -16,7 +16,11 @@ export const useTrelloService = defineService("trello-service", () => {
       callback_method: "postMessage",
       return_url: `${location.origin}#/token`,
     });
-    window.open(url.href, "_blank");
+    window.open(
+      url.href,
+      "_blank",
+      "popup=1,scrollbars=1,menubar=0,toolbar=0,resizable=0,location=0,status=0,top=64,width=980,height=768",
+    );
 
     window.addEventListener(
       "message",
@@ -29,28 +33,35 @@ export const useTrelloService = defineService("trello-service", () => {
     );
   };
 
-  const swtichBoard = (index) => {
+  const switchBoard = (index) => {
     authStore.$state.currentBoardId = authStore.$state.userInfo.idBoards[index];
-  }
+  };
 
-  const swtichList = (index) => {
+  const switchList = (index) => {
     authStore.$state.currentListId = authStore.$state.listInfo[index].id;
-  }
+  };
 
-  const getBoardInfo = async() => {
+  const getBoardInfo = async () => {
     const res = await authStore.getBoardInfo();
     return res;
-  }
+  };
 
-  const getListsInfo = async() => {
+  const getListsInfo = async () => {
     const res = await authStore.getListsInfo();
     return res;
-  }
+  };
 
-  const getCardsInList = async() => {
+  const getCardsInList = async () => {
     const res = await authStore.getCardsInList();
     return res;
-  }
+  };
 
-  return { login, swtichBoard, swtichList, getBoardInfo, getListsInfo, getCardsInList };
+  return {
+    login,
+    switchBoard,
+    switchList,
+    getBoardInfo,
+    getListsInfo,
+    getCardsInList,
+  };
 });
