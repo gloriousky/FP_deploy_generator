@@ -16,7 +16,7 @@ export const useTrelloService = defineService("trello-service", () => {
       callback_method: "postMessage",
       return_url: `${location.origin}#/token`,
     });
-    window.open(
+    const childWindow = window.open(
       url.href,
       "_blank",
       "popup=1,scrollbars=1,menubar=0,toolbar=0,resizable=0,location=0,status=0,top=64,width=980,height=768",
@@ -28,6 +28,7 @@ export const useTrelloService = defineService("trello-service", () => {
         if (event.origin !== "https://trello.com") return;
         authStore.$state.accessToken = event.data;
         router.push({ name: "/dashboard" });
+        childWindow.close();
       },
       { once: true },
     );
